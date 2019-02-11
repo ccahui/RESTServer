@@ -13,9 +13,9 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // =======================================
-//  ROUTES
+//  ROUTES Globales
 // =======================================
-app.use(require('./routes/usuario'));
+app.use(require('./routes/index'));
 
 
 // =======================================
@@ -31,7 +31,6 @@ mongoose.connect(process.env.URI_DB,(err)=>{
     }
     console.log("Base de datos \x1b[32m%s\x1b[0m", 'ONLINE')
 });
-
 
 
 app.listen(process.env.PORT, () => {

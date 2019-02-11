@@ -2,12 +2,16 @@ const express = require('express');
 const app = express();
 const Usuario = require('../models/usuario');
 const bcrypt = require('bcrypt');
+const {
+    verificaToken,
+    verificaAdmin
+} = require('../middlewares/autentificacion')
 const _ = require('underscore');
 
 // =======================================
 //  Obtiene todos, menos los eliminados Logicamente
 // =======================================
-app.get('/usuario', (req, res) => {
+app.get('/usuario', verificaToken, (req, res) => {
 
     let desde = req.query.desde || 0;
     let limite = req.query.limite || 5;
@@ -43,7 +47,7 @@ app.get('/usuario', (req, res) => {
 });
 
 
-app.post('/usuario', (req, res) => {
+app.post('/usuario', [verificaToken, verificaAdmin], (req, res) => {
 
     let body = req.body;
 
@@ -75,7 +79,7 @@ app.post('/usuario', (req, res) => {
 });
 
 
-app.put('/usuario/:id', (req, res) => {
+app.put('/usuario/:id', [verificaToken, verificaAdmin], (req, res) => {
 
     let id = req.params.id;
     let body = req.body;
@@ -122,7 +126,7 @@ app.put('/usuario/:id', (req, res) => {
 // =======================================
 //  Eliminacion LOGICA controlado por ESTADO
 // =======================================
-app.delete('/usuario/:id', (req, res) => {
+app.delete('/usuario/:id', [verificaToken, verificaAdmin], (req, res) => {
 
     let id = req.params.id;
 

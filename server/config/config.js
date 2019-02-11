@@ -10,12 +10,19 @@ process.env.PORT = process.env.PORT || 3000;
 process.env.NODE_ENV = process.env.NODE_ENV || 'local';
 
 // =======================================
+//  TOKEN Seed y Vencimiento
+// =======================================
+process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+process.env.SEED = process.env.SEED || 'este-es-el-seed-local';
+
+
+// =======================================
 //  BASE DE DATOS
 // =======================================
 
 let URI;
 if (process.env.NODE_ENV === 'local') {
-   URI = 'mongodb://localhost:27017/cafe';
+    URI = 'mongodb://localhost:27017/cafe';
 } else {
     //Especificamos /cafe ---> Nombre de la base de datos en la nube
     // =======================================

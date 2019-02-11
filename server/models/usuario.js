@@ -51,7 +51,7 @@ let usuarioSchema = new Schema({
 
 
 // =======================================
-//  Eliminar un campo que retorna la DB
+//  Eliminar un campo que se retorna a el frontEnd
 // =======================================
 
 usuarioSchema.methods.toJSON = function () {
