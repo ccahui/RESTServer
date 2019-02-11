@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'local') {
     // =======================================
     //  EN MONGO BD ATLAS LISTA DE DIRECCION IP DE CONEXION PERMITIDAS 0.0.0.0/0
     // =======================================
-    URI = 'mongodb+srv://cafe-user:mongodb123456@cluster0-ox43o.mongodb.net/cafe?retryWrites=true';
+    URI = process.env.URI_MONGO;
 }
 
 
