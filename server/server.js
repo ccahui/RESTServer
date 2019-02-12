@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
+const path = require('path');
 
 
 // parse application/x-www-form-urlencoded
@@ -31,6 +32,10 @@ mongoose.connect(process.env.URI_DB,(err)=>{
     }
     console.log("Base de datos \x1b[32m%s\x1b[0m", 'ONLINE')
 });
+// =======================================
+//  Habilitando la carpeta Public para ser accedida
+// =======================================
+app.use(express.static(path.resolve(__dirname,'../public')));
 
 
 app.listen(process.env.PORT, () => {

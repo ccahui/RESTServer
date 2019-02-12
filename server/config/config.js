@@ -15,7 +15,10 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'local';
 process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
 process.env.SEED = process.env.SEED || 'este-es-el-seed-local';
 
-
+// =======================================
+//  Google SignIn
+// =======================================
+process.env.CLIENT_ID = process.env.CLIENT_ID || '274424266167-bfdohtg2fvbu3ssu4ipe6uirq8o68o9a.apps.googleusercontent.com';
 // =======================================
 //  BASE DE DATOS
 // =======================================
