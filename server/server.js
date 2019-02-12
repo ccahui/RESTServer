@@ -25,8 +25,8 @@ app.use(require('./routes/index'));
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useCreateIndex', true);
 
-mongoose.connect(process.env.URI_DB,(err)=>{
-    if(err){
+mongoose.connect(process.env.URI_DB, (err) => {
+    if (err) {
         console.log('ERROR');
         throw err;
     }
@@ -35,7 +35,7 @@ mongoose.connect(process.env.URI_DB,(err)=>{
 // =======================================
 //  Habilitando la carpeta Public para ser accedida
 // =======================================
-app.use(express.static(path.resolve(__dirname,'../public')));
+app.use(express.static(path.resolve(__dirname, '../public')));
 
 
 app.listen(process.env.PORT, () => {
