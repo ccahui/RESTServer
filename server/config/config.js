@@ -34,6 +34,4 @@ if (process.env.NODE_ENV === 'local') {
     URI = process.env.URI_MONGO;
 }
 
-
-
 process.env.URI_DB = URI;
