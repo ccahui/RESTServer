@@ -45,7 +45,33 @@ app.get('/usuario', verificaToken, (req, res) => {
 
 
 });
+app.get('/usuario/:id', (req, res) => {
+    let id = req.params.id;
+    Usuario.findOne({
+        _id: id
+    })
+    .exec((err, usuario) => {
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                err
+            });
+        }
+        if (!usuario) {
+            return res.status(400).json({
+                ok: false,
+                err: {
+                    message: `No se obtuvo un usuario con el [id] ${id}`
+                }
+            })
+        }
+        res.json({
+            ok: true,
+            usuario
+        })
+    })
 
+});
 
 app.post('/usuario', (req, res) => {
 
