@@ -15,6 +15,10 @@ var productoSchema = new Schema({
         type: String,
         required: false
     },
+    img: {
+        type: String,
+        required: false
+    },
     estado: {
         type: Boolean,
         required: true,
@@ -29,7 +33,9 @@ var productoSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Usuario'
     }
-}, {collection:'productos'});
+}, {
+    collection: 'productos'
+});
 
 
 module.exports = mongoose.model('Producto', productoSchema);
